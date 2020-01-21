@@ -65,5 +65,11 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        @Override
+        protected void onPostExecute(String result) {
+            mInfoTextView.setText(result);
+            progressBar.setVisibility(View.GONE);
+            super.onPostExecute(result);
+        }
     }
 }

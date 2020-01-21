@@ -17,6 +17,7 @@ import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -42,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick() {
-        String bestUrl = "https://api.github.com/whatakat";
-        if (editText.getText().toString().isEmpty()) {
+        String bestUrl = "https://api.github.com/users";
+        if (!editText.getText().toString().isEmpty()) {
             bestUrl += "/" + editText.getText();
         }
         ConnectivityManager connectivityManager =
@@ -115,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 inputStream = connection.getInputStream();
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
                 int read = 0;
-                while ((read = inputStream.read()) != 1) {
+                while ((read = inputStream.read()) != -1) {
                     bos.write(read);
                 }
                 byte[] result = bos.toByteArray();

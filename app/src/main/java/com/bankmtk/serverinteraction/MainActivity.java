@@ -2,6 +2,9 @@ package com.bankmtk.serverinteraction;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.Network;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +31,14 @@ public class MainActivity extends AppCompatActivity {
         if (editText.getText().toString().isEmpty()){
             bestUrl+="/"+editText.getText();
         }
+        ConnectivityManager connectivityManager =
+                (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        Network network = connectivityManager.getActiveNetwork();
+        if (network != null){
+            new DownloadPageTask().execute(bestUrl);//start new stream
+        }
+
 
     }
 }

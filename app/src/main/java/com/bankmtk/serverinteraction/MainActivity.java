@@ -23,5 +23,11 @@ public class MainActivity extends AppCompatActivity {
         Button btnLoad = (Button)findViewById(R.id.btnLoad);
         btnLoad.setOnClickListener((v)->onClick());
     }
-    public void onClick()
+    public void onClick(){
+        String bestUrl ="https://api.github.com/whatakat";
+        if (editText.getText().toString().isEmpty()){
+            bestUrl+="/"+editText.getText();
+        }
+
+    }
 }

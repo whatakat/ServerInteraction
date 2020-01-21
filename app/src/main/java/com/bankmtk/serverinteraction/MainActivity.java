@@ -5,11 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.Network;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
     private TextView mInfoTextView;
@@ -37,8 +42,28 @@ public class MainActivity extends AppCompatActivity {
         Network network = connectivityManager.getActiveNetwork();
         if (network != null){
             new DownloadPageTask().execute(bestUrl);//start new stream
+        }else{
+            Toast.makeText(this,"connect internet",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+    private class DownLoadPageTask extends AsyncTask<String, Void, String>{
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mInfoTextView.setText("");
+            progressBar.setVisibility(View.VISIBLE);
         }
 
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                return downLoadOneUrl(urls[0]);
+            }catch (IOException e){
+                e.printStackTrace();
+                return "error";
+            }
+        }
 
     }
 }

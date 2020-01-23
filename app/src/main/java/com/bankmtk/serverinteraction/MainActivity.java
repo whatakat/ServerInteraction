@@ -17,7 +17,6 @@ import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -26,10 +25,16 @@ import java.util.Set;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class MainActivity extends AppCompatActivity {
+
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView mInfoTextView;
     private ProgressBar progressBar;
-    private EditText editText;
+    Button btnLoad;
+    Button btnSaveAllSugar;
+    Button btnSelectAllSugar;
+    Button btnDeleteAllsugar;
+    //RestApi restApi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

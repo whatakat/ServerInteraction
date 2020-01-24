@@ -1,7 +1,7 @@
 package com.bankmtk.serverinteraction.mvp;
 
 @StateStrategyType(AddToEndSingleStrategy.class)
-public interface MainView {
+public interface MainView extends MvpView{
     void showAvatar(String avatarUrl);
     void showError(String message);
     void setUsername(String username);

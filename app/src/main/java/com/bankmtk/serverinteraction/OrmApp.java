@@ -2,6 +2,8 @@ package com.bankmtk.serverinteraction;
 
 import android.app.Application;
 
+import androidx.room.Room;
+
 import com.orm.SugarContext;
 
 public class OrmApp extends Application {
@@ -14,4 +16,5 @@ public class OrmApp extends Application {
         super.onCreate();
         SugarContext.init(this);
     }
+
 }

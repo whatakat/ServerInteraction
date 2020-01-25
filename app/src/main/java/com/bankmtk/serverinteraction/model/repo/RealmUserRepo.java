@@ -1,5 +1,10 @@
 package com.bankmtk.serverinteraction.model.repo;
 
+import com.bankmtk.serverinteraction.ui.NetworkStatus;
+
+import io.reactivex.Single;
+import io.reactivex.schedulers.Schedulers;
+
 public class RealmUserRepo {
     public Single<User> getUser(String username) {
         if (NetworkStatus.isOnline()) {

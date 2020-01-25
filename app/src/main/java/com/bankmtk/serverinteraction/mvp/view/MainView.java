@@ -1,4 +1,4 @@
-package com.bankmtk.serverinteraction.mvp;
+package com.bankmtk.serverinteraction.mvp.view;
 
 @StateStrategyType(AddToEndSingleStrategy.class)
 public interface MainView extends MvpView{

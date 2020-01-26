@@ -1,6 +1,7 @@
 package com.bankmtk.serverinteraction.entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class User {
     String login;

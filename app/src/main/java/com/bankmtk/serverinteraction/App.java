@@ -5,6 +5,7 @@ import android.app.Application;
 import com.bankmtk.serverinteraction.entity.room.db.UserDatabase;
 import com.orm.SugarContext;
 
+import io.paperdb.Paper;
 import timber.log.Timber;
 
 public class App extends Application {

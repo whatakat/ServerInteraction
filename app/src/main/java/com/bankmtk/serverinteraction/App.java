@@ -6,6 +6,8 @@ import com.bankmtk.serverinteraction.entity.room.db.UserDatabase;
 import com.orm.SugarContext;
 
 import io.paperdb.Paper;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import timber.log.Timber;
 
 public class App extends Application {
